@@ -22,15 +22,13 @@ function App() {
 
 
     return (
-            <div className='container '>
-                <div className='row'>
+                <React.Fragment>
+                    <FavoritesComponent/>
                     <SearchComponent/>
-                </div>
-                <div className='row'>
                     <CityComponent/>
-                </div>
-                {/*<FavoritesComponent/>*/}
-            </div>
+
+                </React.Fragment>
+
 
         );
 

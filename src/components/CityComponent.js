@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {addWeather, updateCityName} from "../redux/actions";
+import {addFavorite, addWeather, updateCityName} from "../redux/actions";
 
 
 function picsDict(pic) {
@@ -26,14 +26,23 @@ function CityComponent() {
                 })
         }
 
+    const click = (id,data) =>{
+        dispatch(addFavorite({id: id, data: data}))
+    }
+
 
     return (
-        <div>
-            <h2>Weather in {city.name}</h2>
-            <p>{city.name != null ? city.name : '-'}</p>
-            <p>{city.weather != null ? city.weather.temp : '-'} °C </p>
-            {city.weather != null ? <img src={picsDict(city.weather.icon)}/> : '-'}
-        </div>
+            <div className='container'>
+                <div className='row'>
+                    <h2>Weather in {city.name}</h2>
+                    <p>{city.name != null ? city.name : '-'}</p>
+                    <p>{city.weather != null ? city.weather.temp.toFixed(1) : '-'} °C </p>
+                    {city.weather != null ? <img src={picsDict(city.weather.icon)}/> : '-'}
+                    <button onClick={()=>click(city.name,city.name)}>Add city to favorite</button>
+                    <p>{city.id}</p>
+                </div>
+            </div>
+
     )
 
 }

@@ -15,5 +15,10 @@ code {
 
 .container{
   margin-left: 35%;
+  /*margin-top: 5%;*/
+}
+.fav_list{
+  margin-left: 75%;
   margin-top: 5%;
+
 }

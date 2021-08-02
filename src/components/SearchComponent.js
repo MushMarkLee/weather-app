@@ -18,9 +18,11 @@ const filterOptions = (options, state) => {
 const cities = []
 const cities_dict = {}
 
-CITIES.forEach((cit) => {
-    cities.push(cit.name)
-    cities_dict[cit.name.toLowerCase()] = cit
+
+CITIES.forEach((city) => {
+    cities.push(city.name)
+    cities_dict[city.name.toLowerCase()] = city
+
 })
 
 function SearchComponent() {
@@ -33,28 +35,31 @@ function SearchComponent() {
             let found_city = cities_dict[city_name_lower]
             let lat = found_city.coord.lat
             let lon = found_city.coord.lon
-            dispatch(selectCity({name: city_name, lat: lat, lon: lon}))
+            let id = found_city.id
+            dispatch(selectCity({name: city_name, lat: lat, lon: lon, id: id}))
         }
     }
 
     return (
-        <div>
-            <p>Search city</p>
-            <Autocomplete
-                style={{width: 500}}
-                filterOptions={filterOptions}
-                options={cities}
-                renderInput={(params) => (
-                    <TextField {...params}
-                               variant="outlined"
-                               label="Type your city"
-                               onSelect={(e) => handleSelectCity(e)}
+        <div className='container'>
+            <div className='row'>
+                <p>Search city</p>
+                <Autocomplete
+                    style={{width: 500}}
+                    filterOptions={filterOptions}
+                    options={cities}
+                    renderInput={(params) => (
+                        <TextField {...params}
+                                   variant="outlined"
+                                   label="Type your city"
+                                   onSelect={(e) => handleSelectCity(e)}
 
-                    />
-                )}
-            />
-
+                        />
+                    )}
+                />
+            </div>
         </div>
+
     )
 }
 

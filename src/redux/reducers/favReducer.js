@@ -1,9 +1,12 @@
 import {ADD_FAV, REMOVE_FAV} from "../ActionTypes";
 
-const favReducer = (state=['Moscow'], action) => {
+
+const init_fav_list = { ...localStorage}
+const favReducer = (state=init_fav_list, action) => {
     switch (action.type) {
         case ADD_FAV:
-            state.push(action.payload);
+            localStorage.setItem(action.payload.id, action.payload.data)
+            state = { ...localStorage}
             return state;
         case REMOVE_FAV:
             let city_name= action.payload

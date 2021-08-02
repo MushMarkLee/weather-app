@@ -1,9 +1,10 @@
 import {ADD_FAV, ADD_WEATHER, REMOVE_FAV, SELECT_CITY, UPDATE_CITY_NAME} from "../ActionTypes";
 
 
-export const addFavorite = () => {
+export const addFavorite = (favcity) => {
     return {
-        type: ADD_FAV
+        type: ADD_FAV,
+        payload: favcity
     };
 };
 

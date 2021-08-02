@@ -1,28 +1,21 @@
 import React, { Component } from 'react';
+import {addFavorite} from "../redux/actions";
+import {useDispatch, useSelector} from "react-redux";
 
+function FavoritesComponent() {
 
-class FavoritesComponent extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-        };
+    const favorites = useSelector(state => state.favorites);
+    const dispatch = useDispatch();
+    console.log(favorites)
 
+    let fav_list = Object.keys(favorites).map((key) => <p>{favorites[key]}</p>)
 
-    }
+    return(
+        <div className='fav_list'>
+            {fav_list}
+        </div>
 
-    componentDidMount() {
+    )
 
-    }
-
-
-    render() {
-
-        return(
-            <div>
-
-
-            </div>
-        )
-    }
 }
 export default FavoritesComponent
