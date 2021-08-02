@@ -1,6 +1,18 @@
 import React, { Component } from 'react';
-import {addFavorite, updateCityName} from "../redux/actions";
+import {addFavorite, selectCity, updateCityName} from "../redux/actions";
 import {useDispatch, useSelector} from "react-redux";
+
+import CITIES from "../shared/city.json";
+
+
+
+const cities = []
+const cities_dict = {}
+
+CITIES.forEach((cit) => {
+    cities.push(cit.name)
+    cities_dict[cit.name.toLowerCase()] = cit
+})
 
 function FavoritesComponent() {
 
@@ -9,17 +21,28 @@ function FavoritesComponent() {
     console.log(favorites)
 
 
-    const updatecity= (city) =>{
-        dispatch(updateCityName(city))
+
+    function handleFavorite(city)  {
+
+        let city_name = city.toLowerCase()
+        if (city_name in cities_dict) {
+            let found_city = cities_dict[city_name]
+            let lat = found_city.coord.lat
+            let lon = found_city.coord.lon
+            dispatch(selectCity({name: city, lat: lat, lon: lon}))
+        }
     }
 
 
-    let fav_list = Object.keys(favorites).map((key) => <button onClick={()=>updatecity(favorites[key])}>{favorites[key]}</button>)
+    let fav_list = Object.keys(favorites).map((key) => <ul><button onClick={()=>handleFavorite(favorites[key])}>{favorites[key]}</button></ul>)
 
     return(
-        <div className='fav_list'>
-            {fav_list}
-        </div>
+            <div className='col-md-1 mx-auto' id='lists'>
+                <li>
+                    {fav_list}
+                </li>
+            </div>
+
 
     )
 

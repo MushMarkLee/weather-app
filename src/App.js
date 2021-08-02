@@ -23,9 +23,18 @@ function App() {
 
     return (
                 <React.Fragment>
-                    <FavoritesComponent/>
-                    <SearchComponent/>
-                    <CityComponent/>
+                    <div className='container'>
+                        <div className='row'>
+
+                            <SearchComponent/>
+                            <CityComponent/>
+                            <FavoritesComponent/>
+                        </div>
+
+
+
+                    </div>
+
 
                 </React.Fragment>
 

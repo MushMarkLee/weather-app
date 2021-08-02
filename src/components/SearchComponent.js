@@ -112,24 +112,23 @@ function SearchComponent() {
     }
 
     return (
-        <div className='container'>
-            <div className='row'>
-                <p>Search city</p>
-                <Autocomplete
-                    style={{width: 500}}
-                    filterOptions={filterOptions}
-                    options={cities}
-                    renderInput={(params) => (
-                        <TextField {...params}
-                                   variant="outlined"
-                                   label="Type your city"
-                                   onSelect={(e) => handleSelectCity(e)}
+                <div className='col-md-4 mx-auto' id='search'>
+                    <p>Search city</p>
+                    <Autocomplete
+                        style={{width: 500}}
+                        filterOptions={filterOptions}
+                        options={cities}
+                        renderInput={(params) => (
+                            <TextField {...params}
+                                       variant="outlined"
+                                       label="Type your city"
+                                       onSelect={(e) => handleSelectCity(e)}
 
-                        />
-                    )}
-                />
-            </div>
-        </div>
+                            />
+                        )}
+                    />
+                </div>
+
     )
 }
 

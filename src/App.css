@@ -12,13 +12,20 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
   monospace;
 }
-
-.container{
-  margin-left: 35%;
-  /*margin-top: 5%;*/
+.container {
+  width: 100%;
+  padding-right: 0.75rem;
+  padding-left: 0.75rem;
+  margin-top: 10%;
 }
-.fav_list{
-  margin-left: 50%;
-  margin-top: 5%;
+li{
+  list-style: none;
+}
+#city, #search{
+  margin-left: 35%
+}
 
+#lists{
+  margin-left: 70%;
+  margin-top: -18%;
 }
