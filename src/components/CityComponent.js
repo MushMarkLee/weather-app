@@ -10,16 +10,15 @@ function picsDict(pic) {
 function CityComponent() {
     const city = useSelector(state => state.city);
     const dispatch = useDispatch()
-    console.log(city)
 
     if (city.lat != null && city.lon != null)
         if (city.weather == null) {
             let url = `https://api.openweathermap.org/data/2.5/weather?lat=${city.lat}&lon=${city.lon}&appid=db603f7fcb51a2c7cee805e8e6c5488e`
-            console.log(url)
+
             fetch(url)
                 .then(response => response.json())
                 .then(result => {
-                    console.log(result)
+
                     if (city.name == null)
                         dispatch(updateCityName(result.name))
                     dispatch(addWeather({temp: result.main.temp - 273, icon: result.weather[0].icon}))

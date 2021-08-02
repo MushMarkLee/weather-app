@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {addFavorite} from "../redux/actions";
+import {addFavorite, updateCityName} from "../redux/actions";
 import {useDispatch, useSelector} from "react-redux";
 
 function FavoritesComponent() {
@@ -8,7 +8,13 @@ function FavoritesComponent() {
     const dispatch = useDispatch();
     console.log(favorites)
 
-    let fav_list = Object.keys(favorites).map((key) => <p>{favorites[key]}</p>)
+
+    const updatecity= (city) =>{
+        dispatch(updateCityName(city))
+    }
+
+
+    let fav_list = Object.keys(favorites).map((key) => <button onClick={()=>updatecity(favorites[key])}>{favorites[key]}</button>)
 
     return(
         <div className='fav_list'>
