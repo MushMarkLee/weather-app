@@ -1,19 +1,7 @@
 import {ADD_WEATHER, SELECT_CITY, UPDATE_CITY_NAME} from "../ActionTypes";
 import { createReducer } from '@reduxjs/toolkit'
 
-// const cityReducer = (state, action) => {
-//     switch (action.type) {
-//         case SELECT_CITY:
-//             return action.payload;
-//         default:
-//             return state;
-//
-//     }
-// };
-//
-
-const initialState = { name:'Moscow',lat: 46.732,lon: -117.000168}
-
+const initialState = { name:'Moscow', lat: 46.732,lon: -117.000168}
 
 const cityReducer = createReducer(initialState, (builder) => {
     builder
@@ -31,7 +19,8 @@ const cityReducer = createReducer(initialState, (builder) => {
         .addCase(UPDATE_CITY_NAME, (state, action) => {
             // The "mutating" version of this case reducer is much
             //  more direct than the explicitly pure one.
-            state.name = action.payload
+            state.id = action.payload.id
+            state.name = action.payload.name
             return state
         })
 })
