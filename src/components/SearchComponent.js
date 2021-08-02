@@ -29,7 +29,7 @@ function SearchComponent() {
         <div className='col-md-4 mx-auto' id='search'>
                 <p>Search city</p>
                 <Autocomplete
-                    style={{width: 500}}
+                    style={{width: 600}}
                     filterOptions={filterOptions}
                     options={CITIES}
                     getOptionLabel={(option) => option.name}

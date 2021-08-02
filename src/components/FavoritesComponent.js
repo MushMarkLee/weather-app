@@ -29,17 +29,18 @@ function FavoritesComponent() {
     let fav_list = Object.keys(favorites).map((key) => {
         return (
             <ul>
-                <button onClick={()=>handleFavorite(key)}>{favorites[key]}</button>
+                <button className='bn49' onClick={()=>handleFavorite(key)}>{favorites[key]}</button>
             </ul>
         )
     })
 
     return(
-            <div className='col-md-1 mx-auto' id='lists'>
+            <aside>
+                <h2 id='fav_name'>Your favorite cities</h2>
                 <li>
                     {fav_list}
                 </li>
-            </div>
+            </aside>
 
 
     )

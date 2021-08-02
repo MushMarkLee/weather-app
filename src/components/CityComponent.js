@@ -33,12 +33,22 @@ function CityComponent() {
 
     return (
         <div className='col-md-4' id='city'>
-                <h2>Weather in {city.name}</h2>
-                <p>{city.name != null ? city.name : '-'}</p>
-                <p>{city.weather != null ? city.weather.temp.toFixed(1) : '-'} °C </p>
+            <h2 id='title'>Weather in {city.name}</h2>
+
+
+            <div className='weather'>
+
                 {city.weather != null ? <img src={picsDict(city.weather.icon)}/> : '-'}
-                <button onClick={()=>click(city.id,city.name)}>Add city to favorite</button>
-                <p>{city.id}</p>
+                <div className='temp'>
+                    {city.weather != null ? city.weather.temp.toFixed(1) : '-'} °C
+                </div>
+                <div >
+                    <button className='simple' onClick={()=>click(city.id,city.name)}>Add city to favorite</button>
+                </div>
+
+            </div>
+
+
         </div>
 
     )
