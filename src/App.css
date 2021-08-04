@@ -142,8 +142,9 @@
     z-index: 2;
     top: 0;
     left: 0;
-    background: rgb(250,245,201);
-    background: linear-gradient(153deg, rgba(250,245,201,1) 0%, rgba(249,238,240,1) 36%, rgba(230,218,241,1) 100%);
+    background: rgb(204,246,249);
+    background: linear-gradient(153deg, rgba(204,246,249,1) 0%, rgba(157,209,244,1) 30%, rgba(132,220,255,1) 100%);
+
     overflow-x: hidden;
     padding-top: 60px;
     transition: transform .5s ease;
@@ -183,15 +184,17 @@
     padding: 14px;
     width: 100%;
     font-family: 'Nunito', sans-serif;
-    color: #1C608E;
-    color: #1C608E;
-    background: #e6daf1;
+
+    color: #F9F4FF;
+
+    background: #0078d7;
+
 
     border-radius: 2px;
     text-decoration: none;
     transition: box-shadow 200ms ease-out;
     cursor: pointer;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 900;
     margin-top: 10px;
   }
