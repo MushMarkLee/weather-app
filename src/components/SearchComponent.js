@@ -28,11 +28,13 @@ function SearchComponent() {
     return (
         <div className='col-md-4 mx-auto' id='search'>
                 <p>Search city</p>
+
                 <Autocomplete
-                    style={{width: 600}}
+
                     filterOptions={filterOptions}
                     options={CITIES}
-                    getOptionLabel={(option) => option.name}
+
+                    getOptionLabel={(option) => option.name + ' (' + option.country + ')'}
                     getOptionSelected={(option, value) => {
                         return option.name === value.name;
                     }}

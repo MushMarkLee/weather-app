@@ -5,7 +5,14 @@ import {useDispatch, useSelector} from "react-redux";
 import CITIES from "../shared/city.json";
 import findCityById from "../shared/city";
 
+function openNav() {
+    document.getElementById("mySidenav").style.width='250px'
 
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+}
 
 const cities = []
 const cities_dict = {}
@@ -28,22 +35,43 @@ function FavoritesComponent() {
 
     let fav_list = Object.keys(favorites).map((key) => {
         return (
-            <ul>
+            <li onClick={closeNav}>
                 <button className='bn49' onClick={()=>handleFavorite(key)}>{favorites[key]}</button>
-            </ul>
+            </li>
         )
     })
 
     return(
-            <aside>
-                <h2 id='fav_name'>Your favorite cities</h2>
-                <li>
-                    {fav_list}
-                </li>
-            </aside>
+        <aside className="clearfix visible-xs">
+            <div id="burger">
+                <div id="burger">
+                    <div id="mySidenav" className="sidenav_mobile">
+                        <a href="javascript:void(0)" className="closebtn" onClick={closeNav}>&times;</a>
+                        <ul><li><h5 id='fav_name'>Your favorite cities </h5></li></ul>
+                        <ul>
+                                {fav_list}
+                        </ul>
+                    </div>
+                    <span
+                        style={{fontSize:'45px',cursor:'pointer',backgroundShape:'circle'}}
+                        onClick={openNav}>&#128153; </span>
+                </div>
+            </div>
+            <div className="menu_container">
+                <nav>
+                    <div className="sidenav">
 
+                        <ul>
+                            <h2 id='fav_name'>Your favorite cities</h2>
+                            {fav_list}
+                        </ul>
 
+                    </div>
+                </nav>
+            </div>
+        </aside>
     )
-
 }
+
+
 export default FavoritesComponent
