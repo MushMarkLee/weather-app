@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {addFavorite, addWeather, updateCityName} from "../redux/actions";
 import findCityById from "../shared/city";

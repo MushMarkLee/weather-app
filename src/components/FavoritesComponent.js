@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import {addFavorite, selectCity, updateCityName} from "../redux/actions";
+import React from 'react';
+import {selectCity} from "../redux/actions";
 import {useDispatch, useSelector} from "react-redux";
 
 import CITIES from "../shared/city.json";
@@ -54,7 +54,7 @@ function FavoritesComponent() {
                     </div>
                     <span
                         style={{fontSize:'45px',cursor:'pointer',backgroundShape:'circle'}}
-                        onClick={openNav}>&#128153; </span>
+                        onClick={openNav}> <img src={'h.png'} alt='heart' id='heart' /></span>
                 </div>
             </div>
             <div className="menu_container">

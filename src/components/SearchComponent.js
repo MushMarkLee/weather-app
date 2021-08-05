@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 
 
 import CITIES from "../shared/city.json";
@@ -6,7 +6,7 @@ import {Autocomplete, createFilterOptions} from "@material-ui/lab";
 
 import TextField from "@material-ui/core/TextField";
 import {useDispatch} from "react-redux";
-import {addWeather, selectCity} from '../redux/actions';
+import {selectCity} from '../redux/actions';
 
 const OPTIONS_LIMIT = 10;
 const defaultFilterOptions = createFilterOptions();
